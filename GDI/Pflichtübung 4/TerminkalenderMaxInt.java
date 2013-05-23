@@ -13,7 +13,7 @@ public class TerminkalenderMaxInt {
 		int eingabe = 0;
 		String[] termine = new String[24];
 		Scanner in = new Scanner(System.in);
-
+        int x = 4;
         //Ein neues Kommentar
 
 		/*
