@@ -28,7 +28,6 @@ public class ListTest {
                 "Arbeiter 3");
         list.concat(list2.getFirst());
 
-        System.out.print("Hallo");
     }
 
 }
