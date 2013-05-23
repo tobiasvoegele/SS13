@@ -14,6 +14,8 @@ public class TerminkalenderMaxInt {
 		String[] termine = new String[24];
 		Scanner in = new Scanner(System.in);
 
+        //Ein neues Kommentar
+
 		/*
 		 * Schleifendurchlaeufe richten Sie je nach Eingabe des Benutzers.
 		 * Durchlaufen wird das Hauptmenue, je nach Eingabe 1 - (N-Mal)
@@ -81,7 +83,7 @@ public class TerminkalenderMaxInt {
 		/**
 		 * Methode zum Anzeigen von Terminen
 		 */
-		String ausgabe = ""; // Kontrollvariable für Konvergenz
+		String ausgabe = ""; // Kontrollvariable fï¿½r Konvergenz
 		for (int i = 0; i < termine.length; i++) {
 			// Mit Hilfe des Konvergenzoperators den NULL Pointer des String
 			// Arrays ausblenden
