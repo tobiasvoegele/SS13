@@ -17,6 +17,8 @@ public class ListTest {
         list.addLast(7L, "Hek", "Vogt", sdfToDate,
                 "Arbeiter 3");
 
+        // HALLO!
+
         List list2 = new List();
         list2.addFirst(8L, "Max", "Jando", sdfToDate,
                 "Geschaeftsfuehrer");
