@@ -1,7 +1,15 @@
 /*
-Aufgabe 4
+Aufgabe 4a)
 
 1. Vorbestimmte Länge
 2. In Arrays kann kein Element vorne angefügt werden
 3. Listen haben standardmäßig keinen Index
+
+
+Aufgabe 4b)
+
+Man könnte z.B. beim Durchlaufen des Sortierverfahrens über das Klassenobjekt(.lastname) den ersten Buchstaben auslesen,
+in einen Character casten, um dann per Unicode die Buchstaben miteinander zu vergleichen.
+
+
 */
