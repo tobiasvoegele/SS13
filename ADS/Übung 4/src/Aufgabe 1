@@ -3,7 +3,7 @@
 funct max (data) returns integer
 int maximum = data[0]
   for(int i=1;i<data.length-1;i++) do
-    if maximum<data[i]
+    if maximum<data[i] //teure Operation
       maximum = data[i]
     fi
   od
