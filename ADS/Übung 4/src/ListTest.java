@@ -16,7 +16,8 @@ public class ListTest {
                 "Arbeiter 2");
         list.addLast(7L, "Hek", "Vogt", sdfToDate,
                 "Arbeiter 3");
-
+        System.out.println(list.getFirst());
+        System.out.println(list.getLast());
         // HALLO!
 
         List list2 = new List();
@@ -28,7 +29,8 @@ public class ListTest {
                 "Arbeiter 2");
         list2.addLast(11L, "Hek", "Vogt", sdfToDate,
                 "Arbeiter 3");
-        list.concat(list2.getFirst());
+
+        list.concat(list2);
 
     }
 

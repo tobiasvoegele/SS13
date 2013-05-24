@@ -22,14 +22,16 @@ public class List {
     public void addLast(Long id, String firstname, String lastname,
                         SimpleDateFormat birthday, String position) {
         boolean istEnde = false;
-        Employee employee = root;
-        while (!istEnde) {
-            if (employee.nextEmployee == null) {
-                employee.nextEmployee = new Employee(id, firstname, lastname, birthday, position, null);
-                istEnde = true;
+        if (root != null) {
+            Employee employee = root;
+            while (employee.nextEmployee != null) {
+                employee = employee.nextEmployee;
             }
-            employee = employee.nextEmployee;
+            employee.nextEmployee = new Employee(id, firstname, lastname, birthday, position, null);
+        } else {
+            addFirst(id, firstname, lastname, birthday, position);
         }
+
     }
 
     public static Employee getFirst() {
@@ -37,15 +39,10 @@ public class List {
     }
 
     public static Employee getLast() {
-        boolean istEnde = false;
         Employee employee = root;
-        if (root != null) {
-            while (!istEnde) {
-                if (employee.nextEmployee == null) {
-                    istEnde = true;
-                } else {
-                    employee = employee.nextEmployee;
-                }
+        if (employee != null) {
+            while (employee.nextEmployee != null) {
+                employee = employee.nextEmployee;
             }
         }
         return employee;
@@ -58,21 +55,26 @@ public class List {
     }
 
     public static void removeLast() {
-        Employee employee = root;
-        if (employee != null) {
-            while (employee.nextEmployee.nextEmployee != null) {
-                employee = employee.nextEmployee;
+        if (root != null) {
+            Employee employee = root;
+            if (employee.nextEmployee != null) {
+                while (employee.nextEmployee.nextEmployee != null) {
+                    employee = employee.nextEmployee;
+                }
+                employee.nextEmployee = null;
+            } else {
+                root = null;
             }
         }
     }
 
-    public void concat(Employee employeeNeu) {
+    public void concat(List list2) {
         Employee employee = root;
-        System.out.println("START: "+employee);
+        System.out.println("START: " + employee);
         while (employee.nextEmployee != null) {
             employee = employee.nextEmployee;
         }
-        employee.nextEmployee = employeeNeu;
+        employee.nextEmployee = list2.getFirst();
         /*System.out.println("CHECK1: "+employee);
         System.out.println("CHECK2: "+employee.nextEmployee.nextEmployee);
         System.out.println("CHECK3: "+employee.nextEmployee.nextEmployee.nextEmployee);

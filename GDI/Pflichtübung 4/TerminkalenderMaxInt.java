@@ -7,12 +7,14 @@ import java.util.Scanner;
 
 public class TerminkalenderMaxInt {
 
+    public static Scanner in = new Scanner(System.in);
+
 	public static void main(String[] args) {
 
 		//Deklaration lokaler Variablen
 		int eingabe = 0;
 		String[] termine = new String[24];
-		Scanner in = new Scanner(System.in);
+
 
 		/*
 		 * Schleifendurchlaeufe richten Sie je nach Eingabe des Benutzers.
@@ -32,7 +34,7 @@ public class TerminkalenderMaxInt {
 
 			switch (eingabe) {
 			case 1:
-				termine = terminErstellen(termine, in);
+				termine = terminErstellen(termine);
 				break;
 			case 2:
 				termineAnzeigen(termine);
@@ -45,7 +47,7 @@ public class TerminkalenderMaxInt {
 		} while (eingabe != 3);
 	}
 
-	public static String[] terminErstellen(String[] termine, Scanner in) {
+	public static String[] terminErstellen(String[] termine) {
 		/**
 		 * Methode zum Erstellen von Terminen. Moegliche Stundenangabe : 0-23
 		 */
