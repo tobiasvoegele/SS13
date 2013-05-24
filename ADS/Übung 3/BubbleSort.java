@@ -17,67 +17,112 @@ public class BubbleSort {
 
 		int eingabe;
 		boolean sortierrichtung;
-		Scanner in = new Scanner(System.in);
-		System.out
-				.println("Bitte geben Sie eine Suchrichtung(1 f�r links nach rechts, 2 f�r rechts nach links) ein: ");
-		eingabe = in.nextInt();
-
+		/*
+		 * Scanner in = new Scanner(System.in); System.out .println(
+		 * "Bitte geben Sie eine Suchrichtung(1 für links nach rechts, 2 für rechts nach links) ein: "
+		 * ); eingabe = in.nextInt(); in.close();
+		 */
 		// true ist sortierrichtung von links nach rechts
 		// false ist sortierrichtung von rechts nach links
-		sortierrichtung = (eingabe == 1) ? true : false;
-		ausgabeBubbleSortMod2(zahlenArray, sortierrichtung);
-		System.out.println();
-		ausgabeBubbleSortMod2(zahlenArrayVorgabe, sortierrichtung);
+		/*
+		 * sortierrichtung = (eingabe == 1) ? true : false;
+		 * ausgabeBubbleSortMod2(zahlenArray, sortierrichtung);
+		 * System.out.println(); ausgabeBubbleSortMod2(zahlenArrayVorgabe,
+		 * sortierrichtung);
+		 */
 
 		/*
 		 * ausgabeBubbleSort(zahlenArray); System.out.println();
 		 * ausgabeBubbleSort(zahlenArrayVorgabe);
 		 */
 
-		/*
-		 * ausgabeBubbleSortMod1(zahlenArray); System.out.println();
-		 * ausgabeBubbleSortMod1(zahlenArrayVorgabe);
-		 */
+		ausgabeBubbleSortMod1(zahlenArray);
+		System.out.println();
+		ausgabeBubbleSortMod1(zahlenArrayVorgabe);
+
 	}
 
 	public static void bubbleSort(int[] zahlenArray) {
 		/**
 		 * Methode um das Sortierverfahren Bubble Sort zu implementieren
 		 */
-		for (int i = 0; i < (zahlenArray.length - 1); i++) {
-			for (int j = 0; j < (zahlenArray.length - 1); j++) {
-				if (zahlenArray[j] > zahlenArray[j + 1]) {
-					swap(zahlenArray, j, j + 1);
+		int durchgang = 0;
+		int durchlaufweite = zahlenArray.length;
+		int tempweite;
+		int vertauschungen = 0;
+
+		// Wiederholen bis alle sortiert
+		while (durchlaufweite > 1) {
+			tempweite = 1;
+			// Durchlaufen jeder Stelle im zahlenArray
+			for (int i = 0; (i < durchlaufweite - 1); i++) {
+				// Vertauschung von Zahl mit Nachfolgender wenn Zahl größer.
+				if (zahlenArray[i] > zahlenArray[i + 1]) {
+					swap(zahlenArray, i, i + 1);
+					vertauschungen++;
+					tempweite = i + 1;
 				}
 			}
-			System.out.print(i + 1 + " - ");
+			// Neue Durchlaufweite bis vor sortierten Zahlen am Ende
+			durchlaufweite = tempweite;
+			durchgang++;
+			System.out.print(durchgang + " - ");
 			printArray(zahlenArray);
 		}
+
+		System.out.print("Vertauschunge: " + vertauschungen);
 	}
 
 	public static void bubbleSortMod1(int[] zahlenArray) {
 		/**
-		 * Methode um das Sortierverfahren Bubble Sort Modifiert M�glichkeit 1
+		 * Methode um das Sortierverfahren Bubble Sort Modifiziert Möglichkeit 1
 		 * zu implementieren
 		 */
-		for (int i = 0; i < (zahlenArray.length - 1); i++) {
-			for (int j = 0; j < (zahlenArray.length - 1); j++) {
-				if (zahlenArray[j] > zahlenArray[j + 1]) {
-					swap(zahlenArray, j, j + 1);
-					if ((zahlenArray.length >= j + 3)
-							&& (zahlenArray[j + 1] > zahlenArray[j + 2])) {
-						swap(zahlenArray, j + 1, j + 2);
-					}
+		int durchgang = 0;
+		int vertauschungen = 0;
+
+		boolean getauscht = true;
+
+		// Wiederholen bis nicht mehr getauscht wird
+		while (getauscht) {
+			getauscht = false;
+			// Durchlaufen jeder Stelle im zahlenArray
+			for (int i = 0; (i < zahlenArray.length - 2); i++) {
+				// Vertauschung von Zahl mit 2. Nachfolgender wenn Zahl größer.
+				if (zahlenArray[i] > zahlenArray[i + 2]) {
+					swap(zahlenArray, i, i + 2);
+					vertauschungen++;
+					getauscht = true;
+				}
+				// Vertauschung von Zahl mit Nachfolgender wenn Zahl größer.
+				if (zahlenArray[i] > zahlenArray[i + 1]) {
+					swap(zahlenArray, i, i + 1);
+					vertauschungen++;
+					getauscht = true;
 				}
 			}
-			System.out.print(i + 1 + " - ");
+			durchgang++;
+			System.out.print(durchgang + " - ");
 			printArray(zahlenArray);
 		}
+
+		System.out.print("Vertauschunge: " + vertauschungen);
 	}
+
+	/*
+	 * public static void bubbleSortMod1(int[] zahlenArray) { // Methode um das
+	 * Sortierverfahren Bubble Sort Modifiert Möglichkeit 1 // zu implementieren
+	 * 
+	 * for (int i = 0; i < (zahlenArray.length - 1); i++) { for (int j = 0; j <
+	 * (zahlenArray.length - 1); j++) { if (zahlenArray[j] > zahlenArray[j + 1])
+	 * { swap(zahlenArray, j, j + 1); if ((zahlenArray.length >= j + 3) &&
+	 * (zahlenArray[j + 1] > zahlenArray[j + 2])) { swap(zahlenArray, j + 1, j +
+	 * 2); } } } System.out.print(i + 1 + " - "); printArray(zahlenArray); } }
+	 */
 
 	public static void bubbleSortMod2(int[] zahlenArray, boolean sortierrichtung) {
 		/**
-		 * Methode um das Sortierverfahren Bubble Sort Modifiert M�glichkeit 2
+		 * Methode um das Sortierverfahren Bubble Sort Modifiert Möglichkeit 2
 		 * zu implementieren
 		 */
 		if (sortierrichtung) {
@@ -148,7 +193,8 @@ public class BubbleSort {
 		printArray(zahlenArray);
 	}
 
-	public static void ausgabeBubbleSortMod2(int[] zahlenArray, boolean sortierrichtung) {
+	public static void ausgabeBubbleSortMod2(int[] zahlenArray,
+			boolean sortierrichtung) {
 		/**
 		 * Methode um BubbleSortMod2 auszugeben
 		 */
