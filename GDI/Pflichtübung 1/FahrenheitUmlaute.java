@@ -1,18 +1,18 @@
-// Demo Programm für die erste Übung
+// Demo Programm fï¿½r die erste ï¿½bung
 
 import java.util.Scanner;
 
 // Programm zur Berechnung der Celsius Temperatur 
 // bei bekannter Fahrenheit Temperatur
-public class Fahrenheit {
+public class FahrenheitUmlaute {
 
 	public static void main(String[] args) {
 		
-		// Benötigte Variablen deklarieren
+		// Benï¿½tigte Variablen deklarieren
 		double epsilon = 0.005;
-		double f = 0.0, c;
+		double f, c;
 		
-		// Für die Eingabe von der Tastatur
+		// Fï¿½r die Eingabe von der Tastatur
 		Scanner in = new Scanner(System.in);
 		
 		// Berechnungsschleife
@@ -25,11 +25,11 @@ public class Fahrenheit {
 			// Umrechnen in Celsius
 			c = (f-32) /9*5; 
 			// Ausgabe des Ergebnis
-			System.out.println("... in Celsius: " + c + " ° \n");
+			System.out.println("... in Celsius: " + c + " ï¿½ \n");
 		// Schleife durch Eingabe von 1 verlassen?
 		} while (Math.abs(1-f) > epsilon);
 		
-		System.out.println("... und tschüss");
+		System.out.println("... und tschï¿½ss");
 		in.close();
 	}
 }
