@@ -1,4 +1,4 @@
-//Aufagbe 2b)
+//Aufagbe 2b + 3
 
 import java.text.*;
 
