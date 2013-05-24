@@ -14,8 +14,6 @@ public class TerminkalenderMaxInt {
 		//Deklaration lokaler Variablen
 		int eingabe = 0;
 		String[] termine = new String[24];
-
-
 		/*
 		 * Schleifendurchlaeufe richten Sie je nach Eingabe des Benutzers.
 		 * Durchlaufen wird das Hauptmenue, je nach Eingabe 1 - (N-Mal)

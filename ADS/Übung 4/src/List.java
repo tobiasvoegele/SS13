@@ -1,86 +1,133 @@
 import java.text.*;
 
 public class List {
-
-    public static Employee root;
+    private Employee root;
 
     List() {
         root = null;
     }
 
-    public static boolean isEmpty() {
-        return (root == null);
-    }
-
-    public static void addFirst(Long id, String firstname, String lastname,
-                                SimpleDateFormat birthday, String position) {
-
-        root = new Employee(id, firstname, lastname, birthday, position, root);
-
-    }
-
-    public void addLast(Long id, String firstname, String lastname,
-                        SimpleDateFormat birthday, String position) {
-        boolean istEnde = false;
-        if (root != null) {
-            Employee employee = root;
-            while (employee.nextEmployee != null) {
-                employee = employee.nextEmployee;
-            }
-            employee.nextEmployee = new Employee(id, firstname, lastname, birthday, position, null);
-        } else {
-            addFirst(id, firstname, lastname, birthday, position);
-        }
-
-    }
-
-    public static Employee getFirst() {
+    public Employee getFirst() {
         return root;
     }
 
-    public static Employee getLast() {
-        Employee employee = root;
-        if (employee != null) {
-            while (employee.nextEmployee != null) {
-                employee = employee.nextEmployee;
+    public Employee getLast() {
+        Employee temp = root;
+        if (temp != null) {
+            while (temp.nextEmployee != null) {
+                temp = temp.nextEmployee;
             }
         }
-        return employee;
+        return temp;
     }
 
-    public static void removeFirst() {
+    public void addFirst(int id, String firstName, String lastName,
+                         SimpleDateFormat birthday, String position) {
+        root = new Employee(id, firstName, lastName, birthday, position, root);
+    }
+
+    public void addLast(int id, String firstName, String lastName,
+                        SimpleDateFormat birthday, String position) {
+        if (root != null) {
+            Employee temp = root;
+            while (temp.nextEmployee != null) {
+                temp = temp.nextEmployee;
+            }
+            temp.nextEmployee = new Employee(id, firstName, lastName, birthday,
+                    position);
+        } else {
+            addFirst(id, firstName, lastName, birthday, position);
+        }
+    }
+
+    public void removeFirst() {
         if (root != null) {
             root = root.nextEmployee;
         }
     }
 
-    public static void removeLast() {
+    public void removeLast() {
         if (root != null) {
-            Employee employee = root;
-            if (employee.nextEmployee != null) {
-                while (employee.nextEmployee.nextEmployee != null) {
-                    employee = employee.nextEmployee;
+            Employee temp = root;
+            if (temp.nextEmployee != null) {
+                while (temp.nextEmployee.nextEmployee != null) {
+                    temp = temp.nextEmployee;
                 }
-                employee.nextEmployee = null;
+                temp.nextEmployee = null;
             } else {
                 root = null;
             }
         }
     }
 
-    public void concat(List list2) {
-        Employee employee = root;
-        System.out.println("START: " + employee);
-        while (employee.nextEmployee != null) {
-            employee = employee.nextEmployee;
+    public void concat(List liste2) {
+        if (root != null) {
+            Employee temp = root;
+            while (temp.nextEmployee != null) {
+                temp = temp.nextEmployee;
+            }
+            temp.nextEmployee = liste2.root;
+        } else {
+            root = liste2.root;
         }
-        employee.nextEmployee = list2.getFirst();
-        /*System.out.println("CHECK1: "+employee);
-        System.out.println("CHECK2: "+employee.nextEmployee.nextEmployee);
-        System.out.println("CHECK3: "+employee.nextEmployee.nextEmployee.nextEmployee);
-        System.out.println("CHECK4: "+employee.nextEmployee.nextEmployee.nextEmployee.nextEmployee);
-          */
     }
 
+    public boolean isEmpty() {
+        return (root == null);
+    }
 
+    public int getLength() {
+        int count = 0;
+
+        if (root != null) {
+            Employee temp = root;
+            while (temp != null) {
+                count++;
+                temp = temp.nextEmployee;
+            }
+        }
+
+        return count;
+    }
+
+    @Override
+    public String toString() {
+        String output = "";
+
+        if (root != null) {
+            Employee temp = root;
+            while (temp != null) {
+                output += temp + "\n";
+                temp = temp.nextEmployee;
+            }
+        } else {
+            output = null;
+        }
+
+        return output;
+    }
+
+    public Employee searchID(int id) {
+        if (root != null) {
+            Employee temp = root;
+            while (temp != null) {
+                if (temp.equalsID(id))
+                    return temp;
+                temp = temp.nextEmployee;
+            }
+        }
+        return null;
+    }
+
+    public Employee searchLastName(String lastname) {
+        if (root != null) {
+            Employee temp = root;
+            while (temp != null) {
+                if (temp.equalsLastName(lastname))
+                    return temp;
+                temp = temp.nextEmployee;
+            }
+        }
+        return null;
+    }
 }

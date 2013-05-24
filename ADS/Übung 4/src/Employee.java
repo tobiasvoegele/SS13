@@ -1,28 +1,48 @@
-import java.lang.String;import java.text.*;import java.text.SimpleDateFormat;
+import java.text.*;
 
 public class Employee {
 
-    private long id;
-    private String firstname;
-    private String lastname;
+    private int id;
+    private String firstName;
+    private String lastName;
     private SimpleDateFormat birthday;
     private String position;
-    public Employee nextEmployee;
+    Employee nextEmployee;
 
-    public String toString() {
-        return "Employee [id="+id+", firstname="+firstname+", lastname="+lastname+", birthday="+birthday.toLocalizedPattern()+", position="+position+"]";
-    }
-
-    public Employee(long id, String firstname, String lastname,
-                    SimpleDateFormat birthday, String position, Employee nextEmployee) {
+    Employee(int id, String firstName, String lastName,
+             SimpleDateFormat birthday, String position, Employee nextEmployee) {
         this.id = id;
-        this.firstname = firstname;
-        this.lastname = lastname;
+        this.firstName = firstName;
+        this.lastName = lastName;
         this.birthday = birthday;
         this.position = position;
         this.nextEmployee = nextEmployee;
     }
 
-	/**/
+    Employee(int id, String firstName, String lastName,
+             SimpleDateFormat birthday, String position) {
+        this.id = id;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.birthday = birthday;
+        this.position = position;
+        this.nextEmployee = null;
+    }
+
+    public boolean equalsID(int id) {
+        return (this.id == id);
+    }
+
+    public boolean equalsLastName(String lastName) {
+        return this.lastName.equals(lastName);
+    }
+
+    @Override
+    public String toString() {
+        return "Employee [id=" + id + ", firstName=" + firstName
+                + ", lastName=" + lastName + ", birthday="
+                + birthday.toLocalizedPattern() + ", position=" + position
+                + "]";
+    }
 
 }
