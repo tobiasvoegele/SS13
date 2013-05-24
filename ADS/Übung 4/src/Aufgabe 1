@@ -1,5 +1,7 @@
 //Aufgabe 1
 
+a)
+
 funct max (data) returns integer
 int maximum = data[0]
   for(int i=1;i<data.length-1;i++) do
@@ -9,3 +11,8 @@ int maximum = data[0]
   od
   return maximum
 tcnuf
+
+b)
+S = O(n)
+
+
