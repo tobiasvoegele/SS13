@@ -1,0 +1,11 @@
+//Aufgabe 1
+
+funct max (data) returns integer
+int maximum = data[0]
+  for(int i=1;i<data.length-1;i++) do
+    if maximum<data[i]
+      maximum = data[i]
+    fi
+  od
+  return maximum
+tcnuf
