@@ -109,17 +109,6 @@ public class BubbleSort {
 		System.out.print("Vertauschunge: " + vertauschungen);
 	}
 
-	/*
-	 * public static void bubbleSortMod1(int[] zahlenArray) { // Methode um das
-	 * Sortierverfahren Bubble Sort Modifiert Möglichkeit 1 // zu implementieren
-	 * 
-	 * for (int i = 0; i < (zahlenArray.length - 1); i++) { for (int j = 0; j <
-	 * (zahlenArray.length - 1); j++) { if (zahlenArray[j] > zahlenArray[j + 1])
-	 * { swap(zahlenArray, j, j + 1); if ((zahlenArray.length >= j + 3) &&
-	 * (zahlenArray[j + 1] > zahlenArray[j + 2])) { swap(zahlenArray, j + 1, j +
-	 * 2); } } } System.out.print(i + 1 + " - "); printArray(zahlenArray); } }
-	 */
-
 	public static void bubbleSortMod2(int[] zahlenArray, boolean sortierrichtung) {
 		/**
 		 * Methode um das Sortierverfahren Bubble Sort Modifiert Möglichkeit 2
