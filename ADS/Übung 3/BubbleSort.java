@@ -120,7 +120,7 @@ public class BubbleSort {
 
 	public static void bubbleSortMod1Verbessert(int[] zahlenArray) {
 		/**
-		 * Methode um das Sortierverfahren Bubble Sort Modifiziert Möglichkeit 1
+		 * Methode um das Sortierverfahren Bubble Sort Modifiziert Möglichkeit 1 verbessert
 		 * zu implementieren
 		 */
 		int durchgang = 0;
