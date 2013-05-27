@@ -6,4 +6,5 @@ Lösungen der GDI und ADS Übungen von Max und Patrick.
 
 Achtung
 ----
-Dies sind keine Musterlösungen sondern nur unsere Lösungsansätze, wir geben keine Garantie auf Richtigkeit oder Vollständigkeit!
+Dies sind keine Musterlösungen sondern nur unsere Lösungsansätze, welche ihr nicht blind übernehmen, sondern nur als Anregung verwenden solltet.
+Wir geben keine Garantie auf Richtigkeit oder Vollständigkeit!
