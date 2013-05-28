@@ -1,6 +1,6 @@
 //Aufagbe 2b + 3
 
-import java.text.*;
+import java.text.SimpleDateFormat;
 
 public class TestList {
 
