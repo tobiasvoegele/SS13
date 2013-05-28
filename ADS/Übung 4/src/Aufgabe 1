@@ -3,10 +3,10 @@
 a)
 
 funct max (data) returns integer        
-int maximum = data[0]                                 1                    
+int maximum = data[0]                                 -
   for(int i=1;i<data.length-1;i++) do                 n
     if maximum<data[i] //teure Operation              1
-      maximum = data[i]                               1    
+      maximum = data[i]                               -
     fi
   od
   return maximum
