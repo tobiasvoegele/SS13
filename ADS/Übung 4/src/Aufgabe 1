@@ -2,17 +2,20 @@
 
 a)
 
-funct max (data) returns integer
-int maximum = data[0]
-  for(int i=1;i<data.length-1;i++) do
-    if maximum<data[i] //teure Operation
-      maximum = data[i]
+funct max (data) returns integer        
+int maximum = data[0]                                 -
+  for(int i=1;i<data.length-1;i++) do                 n
+    if maximum<data[i] //teure Operation              1
+      maximum = data[i]                               -
     fi
   od
   return maximum
 tcnuf
 
 b)
+
+n*1
+
 S = O(n)
 
 

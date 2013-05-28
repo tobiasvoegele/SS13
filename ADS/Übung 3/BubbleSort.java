@@ -1,9 +1,9 @@
 /**
- * @author Max Jando - 1312825 / Patrick Fruh - 1314827
- * Klasse, welche die 2 vorgegebene Arrays mit verschiedenen BubbleSort Implementierungen sortiert.
- *
+ * @author Max Jando - 1312825 / Patrick Fruh - 1314827 Klasse, welche die 2
+ *         vorgegebene Arrays mit verschiedenen BubbleSort Implementierungen
+ *         sortiert.
+ * 
  */
-import java.util.*;
 
 public class BubbleSort {
 
@@ -14,10 +14,9 @@ public class BubbleSort {
 
 		int[] zahlenArrayVorgabe = { 10, 6, 7, 7, 8, 2, 45, 11, 100, 1000,
 				1000, 56, 0, 1 };
-
-		int eingabe;
-		boolean sortierrichtung;
 		/*
+		 * int eingabe; boolean sortierrichtung;
+		 * 
 		 * Scanner in = new Scanner(System.in); System.out .println(
 		 * "Bitte geben Sie eine Suchrichtung(1 für links nach rechts, 2 für rechts nach links) ein: "
 		 * ); eingabe = in.nextInt(); in.close();
@@ -31,14 +30,17 @@ public class BubbleSort {
 		 * sortierrichtung);
 		 */
 
-		/*
-		 * ausgabeBubbleSort(zahlenArray); System.out.println();
-		 * ausgabeBubbleSort(zahlenArrayVorgabe);
-		 */
+		// ausgabeBubbleSort(zahlenArray);
+		// System.out.println();
+		// ausgabeBubbleSort(zahlenArrayVorgabe);
 
-		ausgabeBubbleSortMod1(zahlenArray);
+		// ausgabeBubbleSortMod1(zahlenArray);
+		// System.out.println();
+		// ausgabeBubbleSortMod1(zahlenArrayVorgabe);
+
+		ausgabeBubbleSortMod1Verbessert(zahlenArray);
 		System.out.println();
-		ausgabeBubbleSortMod1(zahlenArrayVorgabe);
+		ausgabeBubbleSortMod1Verbessert(zahlenArrayVorgabe);
 
 	}
 
@@ -50,6 +52,7 @@ public class BubbleSort {
 		int durchlaufweite = zahlenArray.length;
 		int tempweite;
 		int vertauschungen = 0;
+		int vergleiche = 0;
 
 		// Wiederholen bis alle sortiert
 		while (durchlaufweite > 1) {
@@ -57,6 +60,7 @@ public class BubbleSort {
 			// Durchlaufen jeder Stelle im zahlenArray
 			for (int i = 0; (i < durchlaufweite - 1); i++) {
 				// Vertauschung von Zahl mit Nachfolgender wenn Zahl größer.
+				vergleiche++;
 				if (zahlenArray[i] > zahlenArray[i + 1]) {
 					swap(zahlenArray, i, i + 1);
 					vertauschungen++;
@@ -70,7 +74,8 @@ public class BubbleSort {
 			printArray(zahlenArray);
 		}
 
-		System.out.print("Vertauschunge: " + vertauschungen);
+		System.out.println("Vertauschunge: " + vertauschungen);
+		System.out.println("Vergleiche: " + vergleiche);
 	}
 
 	public static void bubbleSortMod1(int[] zahlenArray) {
@@ -80,6 +85,7 @@ public class BubbleSort {
 		 */
 		int durchgang = 0;
 		int vertauschungen = 0;
+		int vergleiche = 0;
 
 		boolean getauscht = true;
 
@@ -89,12 +95,14 @@ public class BubbleSort {
 			// Durchlaufen jeder Stelle im zahlenArray
 			for (int i = 0; (i < zahlenArray.length - 2); i++) {
 				// Vertauschung von Zahl mit 2. Nachfolgender wenn Zahl größer.
+				vergleiche++;
 				if (zahlenArray[i] > zahlenArray[i + 2]) {
 					swap(zahlenArray, i, i + 2);
 					vertauschungen++;
 					getauscht = true;
 				}
 				// Vertauschung von Zahl mit Nachfolgender wenn Zahl größer.
+				vergleiche++;
 				if (zahlenArray[i] > zahlenArray[i + 1]) {
 					swap(zahlenArray, i, i + 1);
 					vertauschungen++;
@@ -106,19 +114,54 @@ public class BubbleSort {
 			printArray(zahlenArray);
 		}
 
-		System.out.print("Vertauschunge: " + vertauschungen);
+		System.out.println("Vertauschunge: " + vertauschungen);
+		System.out.println("Vergleiche: " + vergleiche);
 	}
 
-	/*
-	 * public static void bubbleSortMod1(int[] zahlenArray) { // Methode um das
-	 * Sortierverfahren Bubble Sort Modifiert Möglichkeit 1 // zu implementieren
-	 * 
-	 * for (int i = 0; i < (zahlenArray.length - 1); i++) { for (int j = 0; j <
-	 * (zahlenArray.length - 1); j++) { if (zahlenArray[j] > zahlenArray[j + 1])
-	 * { swap(zahlenArray, j, j + 1); if ((zahlenArray.length >= j + 3) &&
-	 * (zahlenArray[j + 1] > zahlenArray[j + 2])) { swap(zahlenArray, j + 1, j +
-	 * 2); } } } System.out.print(i + 1 + " - "); printArray(zahlenArray); } }
-	 */
+	public static void bubbleSortMod1Verbessert(int[] zahlenArray) {
+		/**
+		 * Methode um das Sortierverfahren Bubble Sort Modifiziert Möglichkeit 1 verbessert
+		 * zu implementieren
+		 */
+		int durchgang = 0;
+		int vertauschungen = 0;
+
+		int durchlaufweite = zahlenArray.length;
+		int tempweite;
+
+		int vergleiche = 0;
+
+		// Wiederholen bis alle sortiert
+		while (durchlaufweite > 1) {
+			tempweite = 1;
+			// Durchlaufen jeder Stelle im zahlenArray
+			for (int i = 0; (i < durchlaufweite - 2); i++) {
+				// Vertauschung von Zahl mit 2. Nachfolgender wenn Zahl größer.
+				vergleiche++;
+				if (zahlenArray[i] > zahlenArray[i + 2]) {
+					swap(zahlenArray, i, i + 2);
+					vertauschungen++;
+					tempweite = i + 2;
+				}
+				vergleiche++;
+				// Vertauschung von Zahl mit Nachfolgender wenn Zahl größer.
+				if (zahlenArray[i] > zahlenArray[i + 1]) {
+					swap(zahlenArray, i, i + 1);
+					vertauschungen++;
+					// Überprüfung ob tempweite schon erhöht.
+					if (tempweite == 1)
+						tempweite = i + 1;
+				}
+			}
+			durchlaufweite = tempweite;
+			durchgang++;
+			System.out.print(durchgang + " - ");
+			printArray(zahlenArray);
+		}
+
+		System.out.println("Vertauschunge: " + vertauschungen);
+		System.out.println("Vergleiche: " + vergleiche);
+	}
 
 	public static void bubbleSortMod2(int[] zahlenArray, boolean sortierrichtung) {
 		/**
@@ -175,6 +218,19 @@ public class BubbleSort {
 		printArray(zahlenArray);
 		System.out.println();
 		bubbleSort(zahlenArray);
+		System.out.println();
+		System.out.print("Sortiertes Array: ");
+		printArray(zahlenArray);
+	}
+
+	public static void ausgabeBubbleSortMod1Verbessert(int[] zahlenArray) {
+		/**
+		 * Methode um BubbleSortMod1 auszugeben
+		 */
+		System.out.print("Unsortiertes Array: ");
+		printArray(zahlenArray);
+		System.out.println();
+		bubbleSortMod1Verbessert(zahlenArray);
 		System.out.println();
 		System.out.print("Sortiertes Array: ");
 		printArray(zahlenArray);
