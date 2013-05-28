@@ -1,5 +1,5 @@
 /**
- @author Max Jando(1312825), Patrick Fruh()
+ Max Jando - 1312825 / Patrick Fruh - 1314827
  Programm zum Verwalten von Terminen ohne Globale Veriablen
 
  */
