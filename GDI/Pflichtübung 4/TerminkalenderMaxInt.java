@@ -1,6 +1,7 @@
 /**
  Max Jando - 1312825 / Patrick Fruh - 1314827
- Programm zum Verwalten von Terminen ohne Globale Veriablen
+ Programm zum Verwalten von Terminen
+ Moegliche Operationen sind Termine erstellen und Terminliste anzeigen
 
  */
 
