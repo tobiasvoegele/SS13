@@ -1,0 +1,13 @@
+Ist das alles???? Check das mal bitte
+
+
+addFirst      Liste x Employee --> Liste
+addLast       Liste x Employee --> Liste
+getFirst      Liste --> Employee
+getLast       Liste --> Employee
+removeFirst   Liste --> Liste
+removeLast    Liste --> Liste
+concat        Liste x Liste -> Liste
+isEmpty       Liste -> Boolean
+length        Liste -> Integer
+printList     Liste -> Liste -- ?????? oder n-mal Employee ??
