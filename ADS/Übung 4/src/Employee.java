@@ -9,7 +9,7 @@ public class Employee {
     private String lastName;
     private SimpleDateFormat birthday;
     private String position;
-    Employee nextEmployee;
+    Employee nextEmployee = null;
 
     Employee(int id, String firstName, String lastName,
              SimpleDateFormat birthday, String position, Employee nextEmployee) {
@@ -28,7 +28,6 @@ public class Employee {
         this.lastName = lastName;
         this.birthday = birthday;
         this.position = position;
-        this.nextEmployee = null;
     }
 
     public boolean equalsID(int id) {
