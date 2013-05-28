@@ -6,7 +6,7 @@
 
 import java.util.Scanner;
 
-public class TerminkalenderMaxInt {
+public class Terminkalender {
 
     public static Scanner in = new Scanner(System.in);
 
