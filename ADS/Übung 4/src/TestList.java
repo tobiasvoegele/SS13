@@ -1,3 +1,8 @@
+/**
+ * Max Jando 1312825 - Patrick Fruh 1314827
+ * Klasse TestList: Hauptprogramm + Ausabe.
+ */ 
+
 import java.text.SimpleDateFormat;
 
 public class TestList {
@@ -46,6 +51,10 @@ public class TestList {
 	}
 
 	public static void outputInfos(String name, List liste) {
+		/**
+		 * Methode, welche zur Vereinfachung den aktuellen Status von Methoden der Klasse
+		 * , sowie den aktuellen Status der Listen ausgibt
+		 */
 		System.out.println("--- " + name + " ---");
 		System.out.println(liste);
 		System.out.println(name + ".getFirst: " + liste.getFirst());
