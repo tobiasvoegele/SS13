@@ -1,13 +1,18 @@
-Ist das alles???? Check das mal bitte
+Employee
 
+newEmployee       ID x firstName x lastName x birthday x position --> Employee
+outputAsString    Employee --> String
 
-addFirst      Liste x Employee --> Liste
-addLast       Liste x Employee --> Liste
-getFirst      Liste --> Employee
-getLast       Liste --> Employee
-removeFirst   Liste --> Liste
-removeLast    Liste --> Liste
-concat        Liste x Liste -> Liste
-isEmpty       Liste -> Boolean
-length        Liste -> Integer
-printList     Liste -> Liste -- ?????? oder n-mal Employee ??
+List
+
+newList           --> List
+addFirst          List x Employee --> List
+addLast           List x Employee --> List
+getFirst          List --> Employee
+getLast           List --> Employee
+removeFirst       List --> List
+removeLast        List --> List
+concat            List x List --> List
+isEmpty           List --> Boolean
+length            List --> Integer
+printList         List -->
