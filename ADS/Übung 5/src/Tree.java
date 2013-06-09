@@ -23,6 +23,47 @@ public class Tree {
         }
     }
 
+    public boolean isElement() {
+        return isElementRek(root);
+    }
+
+    private boolean isElementRek(TreeNode node) {
+        if(node == null)
+            return false;
+        if(node.value == 'c')
+            return true;
+        else if(node.left!=null)
+            return isElementRek(node.left);
+        else
+            return isElementRek(node.right);
+    }
+
+
+    public char minValue() {
+        return minValueRek(root);
+    }
+
+    private char minValueRek(TreeNode node) {
+        if (node.left == null) {
+            return node.value;
+        } else {
+            return minValueRek(node.left);
+        }
+    }
+
+
+    public int count() {
+        return countRek(root);
+    }
+
+    private int countRek(TreeNode node) {
+        if (node == null) {
+            return 0;
+        } else {
+            return 1 + countRek(node.left) + countRek(node.right);
+        }
+    }
+
     public void levelOrder() {
         List q = new List();
         q.addFirst(root);
