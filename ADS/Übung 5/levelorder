@@ -1,0 +1,76 @@
+/**
+    * Funktion, welche die Elemente nach der LevelOrder ausgibt
+    * Es existiert leider kein gescheiter Weg das rekursiv zu lösen
+    * 
+    *
+    * Dazu brauchen wir eine Liste und ein Listen Element.
+    * 1. Speicher Wurzel in Liste (erstes Element)
+    * 2. Speicher letztes Element der Liste in Listen Element
+    * 3. Entferne das letzte Element der Liste
+    * 4. Gebe das monetane Element aus
+    * 5. Füge zur Liste den linken und den rechten Knoten von List Element hinzu
+    * 6. Gehe zu Schritt 2
+*/
+funct levelOrder()
+  List q = new List()
+  q.addFirst(root);
+  ListElement element;
+  //Solange noch Elemente in der Liste sind
+  while !q.isEmpty()
+    element = q.getLast()
+    q.removeLast()
+            Ausgabe element.wert
+            if element.value.left != null
+                q.addFirst(element.wert.linkesElement)
+            fi
+            if element.value.right != null
+                q.addFirst(element.wert.rechtesElement)
+            fi
+   elihw
+tcnuf
+
+
+/**
+    * Funktion, welche das letzte Element der Liste zurückliefert
+*/
+funct ListElement getLast() returns ListElement
+  ListElement temp = wurzel
+  if temp != null 
+    //Schleife durchläuft solange bis nächstes ListenElement null ist
+    while temp.next != null 
+    do
+      temp = temp.nächstesListenELement
+    od
+  fi
+  //temp ist nun letztes Element
+  return temp
+tcnuf
+
+
+funct addFirst(TreeNode element) {
+  root = neues ListElement(element, wurzel);
+tcnuf
+
+
+funct removeLast()
+  if root != null 
+    ListElement temp = root
+      if temp.next != null
+        //Schleife durchläuft solange bis übernächstes ListenElement null ist
+        while (temp.next.next != null)
+        do
+          temp = temp.nächstesListenElement
+        od
+        //Dann nächster auf null setzen
+        temp.nächstesListenElement = null
+      fi
+      else
+        root = null
+      esle
+  fi
+tcnuf
+
+
+funct isEmpty() returns boolean
+  return wurzel == null
+tcnuf
