@@ -1,45 +1,75 @@
 public class TestTree {
 
-    /**
-     * @param args
-     */
     public static void main(String[] args) {
 
-        Tree a = binTree('a', null, null);
-        Tree e = binTree('e', null, null);
-        Tree b = binTree('b', null, null);
-        Tree c = binTree('c', a, b);
+        //TestBäume anlegen
+        Tree c = binTree('c', null, null);
+        Tree b = binTree('b', null, c);
         Tree g = binTree('g', null, null);
-        Tree f = binTree('f', e, g);
-        Tree d = binTree('d', c, f);
+        Tree h = binTree('h', g, null);
+        Tree f = binTree('f', b, h);
+        Tree r = binTree('r', null, null);
+        Tree p = binTree('p', null, null);
+        Tree l = binTree('l', null, null);
+        Tree q = binTree('q', p, r);
+        Tree o = binTree('o', l, q);
+        Tree k = binTree('k', f, o);
+        Tree leer = new Tree();
+        Tree y = binTree('y', null, null);
+        Tree z = binTree('z', y, null);
 
-
-        System.out.println("Höhe: " + d.height());
-        System.out.println(d.printAsciiArt());
+         //Hilfstext + Methoden ausgeben
+        System.out.println("Höhe: " + k.height());
+        System.out.println(k.printAsciiArt());
         System.out.print("InOrder: ");
-        d.inOrder();
+        k.inOrder();
         System.out.println();
         System.out.print("PreOrder: ");
-        d.preOrder();
+        k.preOrder();
         System.out.println();
         System.out.print("PostOrder: ");
-        d.postOrder();
+        k.postOrder();
         System.out.println();
         System.out.print("LevelOrder: ");
-        d.levelOrder();
+        k.levelOrder();
         System.out.println("\n");
         System.out.print("Anzahl Elemente im Baum: ");
-        System.out.println(d.count());
+        System.out.println(k.count());
         System.out.println();
         System.out.print("Kleinstes Element im Baum: ");
-        System.out.println(d.minValue());
+        System.out.println(k.minValue());
         System.out.println();
         System.out.print("Ist Zeichen c im Baum enthalten? : ");
-        System.out.println(d.isElement() ? "Ja" : "Nein");
+        System.out.println(k.isElement() ? "Ja" : "Nein");
         System.out.println();
+        System.out.print("Leerer Baum: ");
+        System.out.println(leer.isEmpty() ? "Ja" : "Nein");
+        System.out.print("Zeichen b löschen: ");
+        System.out.println(k.delElement('b') ? "Zeichen erfolgreich gelöscht" : "Zeichen konnte nicht gefunden werden oder ist kein Blatt");
+        System.out.println(k.printAsciiArt());
+        System.out.print("Zeichen c löschen: ");
+        System.out.println(k.delElement('c') ? "Zeichen erfolgreich gelöscht" : "Zeichen konnte nicht gefunden werden oder ist kein Blatt");
+        System.out.println(k.printAsciiArt());
+        System.out.println(z.delElement('y') ? "Zeichen erfolgreich gelöscht" : "Zeichen konnte nicht gefunden werden oder ist kein Blatt");
+        System.out.println(z.printAsciiArt());
+        System.out.println(z.delElement('y') ? "Zeichen erfolgreich gelöscht" : "Zeichen konnte nicht gefunden werden oder ist kein Blatt");
+        System.out.println(z.printAsciiArt());
+        System.out.println(z.delElement('z') ? "Zeichen erfolgreich gelöscht" : "Zeichen konnte nicht gefunden werden oder ist kein Blatt");
+        System.out.println(z.printAsciiArt());
+        System.out.print("Zeichen a hinzufügen: ");
+        k.addElement('a');
+        System.out.println(k.printAsciiArt());
+        System.out.println("Zeichen m und n hinzufügen: ");
+        k.addElement('m');
+        k.addElement('n');
+        System.out.println(k.printAsciiArt());
     }
 
-    static Tree binTree(char value, Tree left, Tree right) {
+    /**
+     * Methode liefert einen Tree zurück. Übergeben wird der Wert der
+     * im Tree gespeichert werden soll und Knoten(Hierbei ein Baum) links und rechts.
+     */
+    public static Tree binTree(char value, Tree left, Tree right) {
         Tree t = new Tree(value);
 
         if (left != null) {
