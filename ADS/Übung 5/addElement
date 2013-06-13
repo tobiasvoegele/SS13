@@ -16,7 +16,7 @@ funct addElementRek(TreeNode knoten, char neuerWert)
       addElementRek(TreeNode knoten.rechterKnoten, neuerWert)
     fi
     else
-      // Neuer Knoten rechts einfügen
+      // Neuen Knoten rechts einfügen
       knoten.rechterKnoten = neuerKnoten
     esle
   fi
@@ -26,7 +26,7 @@ funct addElementRek(TreeNode knoten, char neuerWert)
       addElementRek(TreeNode knoten.linkerKnoten, neuerWert)
     fi
     else
-      // Neuer Knoten links einfügen
+      // Neuen Knoten links einfügen
       knoten.linkerKnoten = neuerKnoten
     esle
   fi
