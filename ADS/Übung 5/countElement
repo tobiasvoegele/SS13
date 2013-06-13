@@ -1,0 +1,14 @@
+funct count() return int
+    return countRek(wurzel)
+tcnuf
+
+funct countRek(TreeNode knoten) returns int
+  if node == null
+    //Am Ende ;) --> terminierender Fall
+    return 0
+  fi
+  else 
+    //Rekusiver Aufruf --> + 1 Zählen und weiterlaufen
+    return 1 + countRek(knoten.linkerKnoten) + countRek(knoten.rechterKnoten);
+  esle
+tcnuf
