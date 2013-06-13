@@ -1,0 +1,47 @@
+funct delElement(char wert) returns  boolean
+  return delElementRek(wurzel, wert)
+tcnuf
+
+funct delElementRek(TreeNode knoten, char wert) returns boolean
+  TreeNode temp = knoten
+  if temp == null
+    return false
+  fi 
+  if else temp.wert == wert
+    wurzel = null
+    return true
+  fi 
+  if else wert > temp.wert
+    if temp.rechterKnoten != null
+      if temp.rechterKnoten.wert == wert
+                    if temp.rechterKnoten.linkerKnoten == null && temp.rechterKnoten.linkerKnoten == null
+                        temp.rechterKnoten = null
+                        return true
+                    fi 
+                    else
+                        return false
+                    esle
+      fi
+      else 
+        delElementRek(temp.rechterKnoten, wert);
+      esle
+    fi
+  fi
+  else 
+    if temp.linkerKnoten != null
+      if temp.linkerKnoten.wert == wert
+                    if temp.linkerKnoten.linkerKnoten == null && temp.linkerKnoten.rechterKnoten == null)
+                        temp.linkerKnoten = null
+                        return true
+                    fi
+                    else
+                        return false
+                    esle
+       fi 
+       else 
+         delElementRek(temp.linkerKnoten , wert)
+       esle
+    fi
+   esle
+   return false
+tcnuf
