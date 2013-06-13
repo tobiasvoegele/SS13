@@ -4,13 +4,15 @@ tcnuf
 
 
 funct addElementRek(TreeNode wurzel, char neuerWert)
+  //Neuen Koten erstellen
   TN neuerKnoten = new TN(wurzel, null, null)
   if node == null
+    // Im Falle wenn der Baun leer ist
     wurzel = tn
   fi
   if else neuerWert > wurzel.wert
     if wurzel.rechterKnoten != null
-      //Laufe rechts weiter
+      //Laufe rechts weiter, wenn nächstes Element nicht null ist
       addElementRek(TreeNode wurzel.rechterKnoten, neuerWert)
     fi
     else
@@ -20,7 +22,7 @@ funct addElementRek(TreeNode wurzel, char neuerWert)
   fi
   if else neuerWert < wurzel.wert
     if wurzel.linkerKnoten != null
-      //Laufe links weiter
+      //Laufe links weiter, wenn nächstes Element nicht null ist
       addElementRek(TreeNode wurzel.linkerKnoten, neuerWert)
     fi
     else
