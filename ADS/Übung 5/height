@@ -1,0 +1,15 @@
+funct height() returns int
+  return heightRek(wurzel)
+tcnuf
+
+    /**
+     * Methode, welche die Höhe eines Baumes zurückliefert
+     */
+tcnuf heightRek(TreeNode knoten)
+  if knoten == null
+    return 0
+  fi 
+  else
+    return maximum(1 + heightRek(knoten.linkerKnoten), 1 + heightRek(knoten.rechterKnoten)) // Rekursiver Aufruf
+  esle
+tcnuf
