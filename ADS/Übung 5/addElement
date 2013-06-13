@@ -1,0 +1,34 @@
+funct addElement(char neuerWert) 
+  funct addElementRek(wurzel, neuerWert)
+tcnuf
+
+
+funct addElementRek(TreeNode wurzel, char neuerWert)
+  TN neuerKnoten = new TN(wurzel, null, null)
+  if node == null
+    wurzel = tn
+  fi
+  if else neuerWert > wurzel.wert
+    if wurzel.rechterKnoten != null
+      //Laufe rechts weiter
+      addElementRek(TreeNode wurzel.rechterKnoten, neuerWert)
+    fi
+    else
+      // Neuer Knoten rechts einfügen
+      wurzel.rechterKnoten = neuerKnoten
+    esle
+  fi
+  if else neuerWert < wurzel.wert
+    if wurzel.linkerKnoten != null
+      //Laufe links weiter
+      addElementRek(TreeNode wurzel.linkerKnoten, neuerWert)
+    fi
+    else
+      // Neuer Knoten links einfügen
+      wurzel.linkerKnoten = neuerKnoten
+    esle
+  fi
+  else
+    //nichts machen, da Element schon vorhanden --> Geht nicht Binärer Baum!
+  esle
+tcnuf
