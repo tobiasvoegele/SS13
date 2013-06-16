@@ -32,26 +32,31 @@ class PenAndPaper {
 
     private static void fuehreKaempfeAus(int anzahlBegegnungen) {
         int anzahlMonster = 0;
-        boolean monsterTot = false;
+        int monsterTotZähler = 0;
+
         while (Spieler1.getLebenspunkte() > 0 && anzahlBegegnungen > 0) {
             anzahlMonster = würfeln(1, 4);
             Monster[] monsterListe = generiereMonster(berechneArt(würfeln(1, 6)), berechneMonsterPunkte(anzahlMonster), anzahlMonster);
             int monsterZaehler = 0;
-            while (monsterZaehler < monsterListe.length && Spieler1.getLebenspunkte() > 0) {
-                monsterTot = false;
-                System.out.println("---------------------");
-                System.out.println("Gebt acht, aus dem grauen Zwiellicht, greift dich die Monsterart " + monsterListe[monsterZaehler].getArt() + " an ");
-                System.out.println("Haltet eure Stellung! Kääämpft!");
-                while (!monsterTot && Spieler1.getLebenspunkte() > 0) {
+            monsterTotZähler = 0;
+            System.out.println("---------------------");
+            System.out.println("Gebt acht, aus dem grauen Zwiellicht, greift dich eine Monstergruppe " + monsterListe[monsterZaehler].getArt() + " an");
+            System.out.println("Haltet eure Stellung! Kääämpft!");
+            while (monsterTotZähler != monsterListe.length && Spieler1.getLebenspunkte() > 0) {
+                if (monsterZaehler == monsterListe.length) {
+                    monsterZaehler = 0;
+                }
+                if (monsterListe[monsterZaehler].getLebenspunkte() > 0) {
                     System.out.println(Spieler1.angriffMonster(monsterListe[monsterZaehler]));
                     if (monsterListe[monsterZaehler].getLebenspunkte() <= 0) {
-                        monsterTot = true;
+                        monsterTotZähler++;
                     }
                 }
-                System.out.println("---------------------");
-                System.out.println();
                 monsterZaehler++;
             }
+            System.out.println("Die Monstergruppe wurde besiegt!");
+            System.out.println("---------------------");
+            System.out.println();
             anzahlBegegnungen--;
         }
     }
@@ -105,7 +110,7 @@ class PenAndPaper {
 
     private static void ausgabeGeschichte() {
         System.out.println("\n\n\n");
-        System.out.println(Spieler1.getName()+", dir wurde eine sehr wichtige Aufgabe übertragen.");
+        System.out.println(Spieler1.getName() + ", dir wurde eine sehr wichtige Aufgabe übertragen.");
         System.out.println("Du sollst den einen Ring nach Bree zum Gasthaus zum tänzelnden Pony bringen.");
         System.out.println("Doch vorsicht der Weg ist lang und es lauern viele Gefahren");
         System.out.println("Nun mach dich auf den Weg!");
