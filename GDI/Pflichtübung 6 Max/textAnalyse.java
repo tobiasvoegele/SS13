@@ -103,4 +103,15 @@ public class textAnalyse {
             return text.toUpperCase();
         }
     }
+    // laut Aufgabe static
+   /* public static String getUpperLower(String text, boolean setting) {
+        
+        if (!setting) {
+            text= text.toLowerCase();
+        } if(setting) {
+            text = text.toUpperCase();
+        }
+        return text;
+    } *\
+
 }
